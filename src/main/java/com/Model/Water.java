@@ -1,7 +1,7 @@
 package com.Model;
 
 public class Water extends Product {
-    private boolean isCold;
+    protected boolean isCold;
 
     public Water(boolean isCold) {
         this.isCold = isCold;

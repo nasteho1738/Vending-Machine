@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class VendingMachineImpl  implements VendingMachine {
-    private Map<Integer, Product> products = new HashMap<>();
-    private int depositPool;
+    protected Map<Integer, Product> products = new HashMap<>();
+    protected int depositPool;
 
     public VendingMachineImpl() {
 
