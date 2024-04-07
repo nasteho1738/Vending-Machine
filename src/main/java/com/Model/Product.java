@@ -1,9 +1,9 @@
 package com.Model;
 
 public abstract class Product {
-    private int id;
-    private double price;
-    private String productName;
+    protected int id;
+    protected  double price;
+    protected String productName;
 
 
     public abstract String examine();

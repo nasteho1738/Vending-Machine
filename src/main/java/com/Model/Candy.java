@@ -1,7 +1,7 @@
 package com.Model;
 
 public class Candy extends Product {
-        protected boolean isSugarFree;
+        private boolean isSugarFree;
 
         public Candy(boolean isSugarFree) {
             this.isSugarFree = isSugarFree;

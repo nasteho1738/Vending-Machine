@@ -3,12 +3,12 @@ package com.Model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class VendingMachineImpl  implements VendingMachine {
-    protected Map<Integer, Product> products = new HashMap<>();
-    protected int depositPool;
+public abstract class VendingMachineImpl implements VendingMachine {
+    private int depositPool;
 
     public VendingMachineImpl() {
 
+        Map<Integer, Product> products = new HashMap<>();
         products.put(1,new Water(true) );
         products.put(2,new Water(false));
         products.put(3,new Chips(true));
@@ -50,6 +50,10 @@ public class VendingMachineImpl  implements VendingMachine {
         return balance;
     }
 
+    public void setDepositPool(int depositPool) {
+        this.depositPool = depositPool;
+    }
+
     @Override
     public String getDescription(int id) {
         Product product = product.get(id);
@@ -60,10 +64,17 @@ public class VendingMachineImpl  implements VendingMachine {
         }
     }
 
+    public int getDepositPool() {
+        return depositPool;
+    }
+
     @Override
     public String[] getProducts() {
         return product.values().stream()
-                .map(product -> product.getId() + ": " + product.getProductName() + " - " + product.getPrice() + " SEK" )
+                .map(product -> {
+                    final String format = String.format("%s: %s - %s SEK", product.getId(), product.getProductName(), product.getPrice());
+                    return format;
+                })
                 .toArray(String[] ::new);
     }
 }
